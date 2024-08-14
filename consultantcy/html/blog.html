@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/all.min.css">
+    <link rel="stylesheet" href="../css/screen.css">
+    <script src="../js/all.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    
+    <title>Codod :: Blog</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+    <nav-container></nav-container>
+    <!-- navigation -->
+    
+    <div class="container__nav">
+        <div class="nav-container" slot="logo">
+            <!-- logo -->
+            <div class="logo">
+                <a href="./index.html"><h2>Codod</h2></a>
+            </div>
+        
+            <!-- navs links -->
+            <nav class="links media" slot="nav">
+                <ul>
+                    <li><a href="../html/index.html">Home</a></li>
+                    <li><a href="../html/about.html">About</a></li>
+                    <li><a href="../html/blog.html">Blog</a></li>
+                    <li><a href="../html/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        
+            <!-- button -->
+        
+            <div class="let__tak  shift" slot="btn">
+                <a href="./lettalk.html" class="talk">
+                    <button class="talk__btn">Appointment</button>
+                </a>
+            </div>
+        
+            <!-- toogle -->
+        
+            <div class="toggle" slot="bars">
+                <span class="bar show" id="nb"><i class="fa fa-bars"></i></span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- blog cards -->
+
+    <div class="blog__cards__wrapper">
+        <div class="blog__title">
+            <h2>Our Blog</h2>
+            <p>We bring the latest update on business around the globe</p>
+        </div>
+
+        <div class="blog__cards__container" id="blog">
+           
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- seconder footer -->
+
+<div class="footer__two">
+    <div class="first__one">
+        <div class="logo">
+            <h2>Codod</h2>
+        </div>
+        <div class="nav-footer">
+            <ul>
+                <li><a href="">Legal & Policies</a></li>
+                <li><a href="">Terms & Conditions</a></li>
+                <li><a href="">Business Site Map</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="second__one">
+        <div class="second__text">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae ex nobis repellendus, dolores natus distinctio corrupti earum quidem accusantium ab? Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quidem dolorum tempore debitis facere ullam laborum, reprehenderit architecto at vel.</p>
+        </div>
+        <form action="" class="news__letters" id="letter">
+            <input type="text" name="" id="mail" placeholder="email" required>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+    // function for fetching data
+     function getData(){
+    fetch('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=e1c39966a3e7474cb4189200993c414a' )
+    .then(res => {
+        return res.json();
+    })
+
+    .then(data => {
+        let articles = data.articles; // Access the articles array within the response
+        let cap = ''; // Initialize the HTML string
+
+        articles.forEach(article => {
+            cap += `
+            <div class="blog__cards">
+                <img src="${article.urlToImage}" class="blog__img">
+                <aside class="blog__description">
+                    <h2>${article.title}</h2>
+                    <p>${article.author}</p>
+                    </aside>
+                    <a href="${article.url}" class="blog__card__btn">Read More</a>
+                    
+            </div>
+            `;
+        });
+
+        document.getElementById('blog').innerHTML = cap; // Set the HTML content
+    })
+    .catch(error => {
+        console.log('Error fetching data:', error);
+    });
+ }
+
+getData()
+
+
+
+
+
+
+
+
+// form news letters
+
+let newsLetter =  document.getElementById('letter')
+newsLetter.addEventListener('submit', (e)=>{
+    e.preventDefault()
+    let mail = document.getElementById('mail').value
+    localStorage.setItem('email',mail)
+    console.log("email saved in local storage:" + mail)
+    alert('Thanks for joining our newsletters, We promise not to spam you')
+    })
+// nav-bar
+
+const navbar = document.getElementById('nb');
+console.log(navbar)
+const navLinks = document.querySelector('.links');
+
+// Toggle responsive class for small screens
+navbar.addEventListener('click',()=> {
+    navLinks.classList.toggle('media');
+})
+
+
+
+
+
+
+let showMoreButton = document.getElementsByClassName('feature__btn')
+let description = document.getElementsByClassName('features__description')
+
+
+
+showMoreButton.addEventListener('click',()=> {
+    description.classList.toggle('active');
+})
+
+
+
+
+// slider card autoplay
+
+function showMore() {
+    const description = document.getElementsByClassName('features__description'); // Replace '.description' with your actual selector
+
+    for (let i = 0; i < description.length; i++) {
+        const element = description[i];
+        element.addEventListener('click', function () {
+            this.classList.toggle('active');
+        }.bind(element));
+    }
+}
+
+showMore();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+<!-- <script src="../js/conponent.js" type="modules" defer></script> -->
+</body>
+</html>

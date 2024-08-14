@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/all.min.css">
+    <link rel="stylesheet" href="../css/screen.css">
+    <script src="../js/all.min.js"></script>
+    <title>Codod :: Contact</title>
+</head>
+<body>
+
+    
+ <!-- navigations -->
+ <div class="container__nav">
+    <div class="nav-container" slot="logo">
+        <!-- logo -->
+        <div class="logo">
+            <a href="./index.html"><h2>Codod</h2></a>
+        </div>
+    
+        <!-- navs links -->
+        <nav class="links media" slot="nav">
+            <ul>
+                <li><a href="../html/index.html">Home</a></li>
+                <li><a href="../html/about.html">About</a></li>
+                <li><a href="../html/blog.html">Blog</a></li>
+                <li><a href="../html/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    
+        <!-- button -->
+    
+        <div class="let__tak  shift" slot="btn">
+            <a href="./lettalk.html" class="talk">
+                <button class="talk__btn">Appointment</button>
+            </a>
+        </div>
+    
+        <!-- toogle -->
+    
+        <div class="toggle" slot="bars">
+            <span class="bar show" id="nb"><i class="fa fa-bars"></i></span>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="conatact__wrapper">
+<div class="flex___container">
+    
+    <!-- cards details -->
+    <div class="flex___card__one">
+        <div class="card__details__container">
+            <div class="card__detail ">
+                <a href="mailto:belloabuhanifa06@gmail"><span><i class="fa fa-envelope"></i>Contact Us using our emial:belloabuhanifa06@gmail</span></a>
+            </div>
+            <div class="card__detail ">
+                <a href="tel:08091529288"><span><i class="fa fa-phone"></i>Contact Us using our phone number:08091529288</span></a>
+            </div>
+        </div>
+        <div class="icons">
+            <span class="icons__socials"><a href="https://www.instagram.com/bello_abuhanifa"><i class="fab fa-instagram"></i></a></span>
+            <span class="icons__socials"><a href="https://api.fa-whatsapp.com/send?phone=08091539288"><i class="fab fa-whatsapp"></i></a></span>
+            <span class="icons__socials"><a href="https://twitter.com/BelloAbuhanifa"><i class="fab fa-twitter"></i></a></span>
+        </div>
+    </div>
+
+    
+
+
+    <!-- form -->
+    
+    <div class="form__container__wr">
+        <form action="https:formsubmit.co/belloabuhanifa06@gmail.com"  method="POST"  class="form__infomation" id="fmd">
+            <h3>Contact us Today</h3>
+            <input type="text" placeholder="Name:" name="name" required id="name__feidls">
+            <input type="text" placeholder="Email:" name="name" required id="email__feidls">
+            <textarea name="" id="" cols="30" rows="10" class="text__feild"  placeholder="Text:"></textarea>
+            <button type="submit"  class="for__btn">Contact Us</button>
+        </form>
+    </div>
+</div>
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+<!-- seconder footer -->
+
+<div class="footer__two">
+    <div class="first__one">
+        <div class="logo">
+            <h2>Codod</h2>
+        </div>
+        <div class="nav-footer">
+            <ul>
+                <li><a href="">Legal & Policies</a></li>
+                <li><a href="">Terms & Conditions</a></li>
+                <li><a href="">Business Site Map</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="second__one">
+        <div class="second__text">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae ex nobis repellendus, dolores natus distinctio corrupti earum quidem accusantium ab? Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quidem dolorum tempore debitis facere ullam laborum, reprehenderit architecto at vel.</p>
+        </div>
+        <form action="" class="news__letters" id="letter">
+            <input type="text" name="" id="mail" placeholder="email" required>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        const navbar = document.getElementById('nb');
+console.log(navbar)
+const navLinks = document.querySelector('.links');
+
+// Toggle responsive class for small screens
+navbar.addEventListener('click',()=> {
+    navLinks.classList.toggle('media');
+})
+
+
+
+// form news letters
+
+let newsLetter =  document.getElementById('letter')
+newsLetter.addEventListener('submit', (e)=>{
+    e.preventDefault()
+    let mail = document.getElementById('mail').value
+    localStorage.setItem('email',mail)
+    console.log("email saved in local storage:" + mail)
+    alert('Thanks for joining our newsletters, We promise not to spam you')
+    })
+
+    </script>
+</body>
+</html>
